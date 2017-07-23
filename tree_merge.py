@@ -50,9 +50,6 @@ class Tree():
             self.print_self(branch.right, depth + 1)
 
     
-    """  add_node 
-    """
-
     def add_node(self, branch, new_node):
         if new_node.data < branch.data:
             if branch.left is None:
@@ -93,9 +90,17 @@ def merge_lists(first, second):
 
 def tree_from_list(node, data_list):
 
+    """ Add middle datum to current node
+    """
+    
     midpoint = int(len(data_list)/2)
     node.data = data_list[midpoint]
 
+
+    """ If left or right
+    """
+    
+    
     left_data = data_list[: midpoint]
     right_data = data_list[midpoint + 1 : ]
 
@@ -107,6 +112,15 @@ def tree_from_list(node, data_list):
         node.right = Node()
         tree_from_list(node.right, right_data)
 
+
+def merge_trees(first, second):
+    merged_list = merge_lists([x for x in first], [x for x in second])
+
+    root = Node()
+    tree_from_list(root, merged_list)
+
+    return Tree(root)
+    
 
 def demo():
     first_unbalanced = Tree()
@@ -123,18 +137,12 @@ def demo():
     print("second tree:")
     second_unbalanced.print_self()
     
-    
-    merged = merge_lists([x for x in first_unbalanced], [x for x in second_unbalanced])
-
-    root = Node()
-    tree_from_list(root, merged)
+    merged_balanced = merge_trees(first_unbalanced, second_unbalanced)
 
     print("merged tree:")
 
-    btree = Tree(root)
-    btree.print_self()
+    merged_balanced.print_self()
+    print(",".join(str(x) for x in merged_balanced))
 
-    print(",".join(str(x) for x in merged))
-    print(",".join(str(x) for x in btree))
 
 demo()
