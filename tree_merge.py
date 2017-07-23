@@ -97,7 +97,7 @@ def tree_from_list(node, data_list):
     node.data = data_list[midpoint]
 
 
-    """ If left or right
+    """ If data remains to the left or right in the sorted list, add new node(s) for it then recurse 
     """
     
     
