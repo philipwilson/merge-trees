@@ -7,7 +7,7 @@ class Node():
         self.data = data
 
     def __repr__(self):
-        return 'Node(left = %s, right = %s, data = %s)' % (repr(self.left), repr(self.right), repr(self.data))
+        return 'Node(left=%s, right=%s, data=%s)' % (repr(self.left), repr(self.right), repr(self.data))
 
 class Tree():
     def __init__(self, nodes=None):
@@ -17,7 +17,7 @@ class Tree():
             self.root = Node()
 
     def __repr__(self):
-        return 'Tree(nodes = %s)' %  (repr(self.root))
+        return 'Tree(nodes=%s)' %  (repr(self.root))
 
 
     """  Well, our toy tree is a collection, so it should be iterable....
